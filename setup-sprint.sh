@@ -1,4 +1,5 @@
 #!/bin/bash
+source ./get-latest-sprint-list.sh
 
 # REQUIRED ENVIRONMENT VARS:
 # TRELLO_API_KEY
@@ -24,7 +25,7 @@ LATEST_SPRINT_LIST_ID=$(curl --request POST \
   --url "$NEW_LIST_URL" \
   | jq .id \
   | sed 's/"//g')
-  
+
 # Add learning log card
 CREATE_TICKET_URL="$BASE_URL$CARDS_URL?name=$LEARNING_LOG_CARD_NAME&pos=top&idList=$LATEST_SPRINT_LIST_ID&idCardSource=$LEARNING_LOG_CARD_TEMPLATE_ID&keepFromSource=all$AUTH_PARAMS"
 curl --request POST \
