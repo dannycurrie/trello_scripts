@@ -1,7 +1,8 @@
 #!/bin/bash
-
+source ./check-env-vars.sh
 
 function getSprintListId {
+  checkEnvVars
   BASE_URL="https://api.trello.com/1"
   AUTH_PARAMS="&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
   GET_SPRINT_LIST_ID_URL="$BASE_URL/boards/$TRELLO_WORK_BOARD_ID/lists?cards=open&card_fields=id&filter=open&fields=id$AUTH_PARAMS"

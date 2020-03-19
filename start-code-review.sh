@@ -1,4 +1,6 @@
 #!/bin/bash
+source ./check-env-vars.sh
+
 
 # REQUIRED ENVIRONMENT VARS
 # TRELLO_API_KEY
@@ -14,6 +16,8 @@ TICKET_NO="$1"
 TICKET_NAME="$2"
 CARD_NAME="Code%20Review%20MRM-$TICKET_NO-$TICKET_NAME"
 AUTH_PARAMS="&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+
+checkEnvVars
 
 # GET SPRINT BOARD URL
 GET_SPRINT_LIST_ID_URL="$BASE_URL$BOARDS_URL/$TRELLO_WORK_BOARD_ID/lists?cards=open&card_fields=id&filter=open&fields=id$AUTH_PARAMS"

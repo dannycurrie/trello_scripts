@@ -1,5 +1,6 @@
 #!/bin/bash
 source ./get-latest-sprint-list.sh
+source ./check-env-vars.sh
 
 # REQUIRED ENVIRONMENT VARS
 # TRELLO_API_KEY
@@ -15,6 +16,8 @@ TICKET_NO="$1"
 TICKET_NAME="$2"
 CARD_NAME="MRM-$TICKET_NO-$TICKET_NAME"
 AUTH_PARAMS="&key=$TRELLO_API_KEY&token=$TRELLO_TOKEN"
+
+checkEnvVars
 
 # GET SPRINT BOARD URL
 LATEST_SPRINT_LIST_ID=$(getSprintListId)
